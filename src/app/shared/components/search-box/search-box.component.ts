@@ -1,11 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  EventEmitter,
-  Input,
-  Output,
-  ViewChild,
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'shared-search-box',
@@ -16,15 +9,10 @@ export class SearchBoxComponent {
   public placeholder: string = 'Realizar busqueda...';
 
   @Output()
-  public onValue: EventEmitter<string> = new EventEmitter();
+  public onValue = new EventEmitter<string>();
 
-  @ViewChild('txtSearchInput')
-  private searchInputElement!: ElementRef<HTMLInputElement>;
-
-  searchValue(): void {
-    const searchTerm: string = this.searchInputElement.nativeElement.value;
-    if (!searchTerm) return;
-
+  searchValue(searchTerm: string): void {
+    if (!searchTerm.trim()) return;
     this.onValue.emit(searchTerm);
   }
 }
