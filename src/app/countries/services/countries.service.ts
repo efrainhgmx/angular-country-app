@@ -12,7 +12,7 @@ export class CountriesService {
 
   constructor(private http: HttpClient) { }
 
-  searcCapital( term: string ): Observable<Country[]> {
+  getCountriesInformation(url: string): Observable<Country[]> {
     /** 
      * ? El operador catchError es capaz de atrapar el error
      * ? del oberserver, al usar el operador of, regresamos 
@@ -20,23 +20,21 @@ export class CountriesService {
      * * En este caso, al haber un error genera un observer que regresa un 
      * * arreglo vacio = []
      */
-    return this.http.get<Country[]>(`${this.apiUrl}/capital/${term}`)
+    return this.http.get<Country[]>(`${this.apiUrl}/${url}`)
     .pipe(
-      catchError( error => of([]))
-    );
+      catchError(error => of([]))
+    )
+  }
+
+  searchCapital( term: string ): Observable<Country[]> {
+    return this.getCountriesInformation(`capital/${term}`);
   }
 
   searchCountryName( country: string ): Observable<Country[]> {
-    return this.http.get<Country[]>(`${this.apiUrl}/name/${country}`)
-    .pipe(
-      catchError(error => of([]))
-    )
+    return this.getCountriesInformation(`name/${country}`);
   }
 
   searchRegionCountries( region: string ): Observable<Country[]> {
-    return this.http.get<Country[]>(`${this.apiUrl}/region/${region}`)
-    .pipe(
-      catchError(error => of([]))
-    )
+    return this.getCountriesInformation(`region/${region}`);
   }
 }
