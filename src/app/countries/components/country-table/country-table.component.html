@@ -27,7 +27,7 @@
                     {{ country.capital }}
                 </td>
                 <td>{{ country.population | number }}</td>
-                <td><a href="#" rel="noopener noreferrer">Ver más</a></td>
+                <td><a [routerLink]="['/countries/by', country.cca3 ]">Ver más</a></td>
             </tr>
         </tbody>
     </table>
