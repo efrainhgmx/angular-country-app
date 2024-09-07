@@ -37,4 +37,8 @@ export class CountriesService {
   searchRegionCountries( region: string ): Observable<Country[]> {
     return this.getCountriesInformation(`region/${region}`);
   }
+
+  searchCountryByAlphaCode( code: string): Observable<Country[]> {
+    return this.getCountriesInformation(`alpha/${code}`);
+  }
 }
