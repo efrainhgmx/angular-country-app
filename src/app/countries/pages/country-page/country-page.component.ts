@@ -14,13 +14,14 @@ export class CountryPageComponent implements OnInit{
    
   constructor( 
     private acivatedRoute: ActivatedRoute,
-    private countriesService: CountriesService,
-    private router: Router
+    private router: Router,
+    private countriesService: CountriesService
   ) {}
 
   ngOnInit(): void {
     this.acivatedRoute.params
     .pipe(
+      //*switchMap recibe el valor anterior y regresa un nuevo observable
       switchMap( ({ id }) =>  this.countriesService.searchCountryByAlphaCode(id)),
       map( countries => countries.length > 0 ? countries[0] : null)
     )
