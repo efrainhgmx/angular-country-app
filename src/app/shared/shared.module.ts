@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
@@ -19,7 +19,7 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
     SearchBoxComponent,
     SidebarComponent,
   ],
-  imports: [CommonModule, RouterModule, MatProgressSpinner],
+  imports: [CommonModule, RouterModule, MatProgressSpinnerModule],
   exports: [AboutPageComponent, HomePageComponent, SidebarComponent, SearchBoxComponent, LoadingSpinnerComponent],
 })
 export class SharedModule {}
