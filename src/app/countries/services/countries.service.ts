@@ -12,7 +12,7 @@ export class CountriesService {
 
   constructor(private http: HttpClient) { }
 
-  getCountriesInformation(url: string): Observable<Country[]> {
+  private getCountriesInformation(url: string): Observable<Country[]> {
     /** 
      * ? El operador catchError es capaz de atrapar el error
      * ? del oberserver, al usar el operador of, regresamos 
