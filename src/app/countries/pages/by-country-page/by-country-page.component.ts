@@ -8,15 +8,19 @@ import { CountriesService } from '../../services/countries.service';
 })
 export class ByCountryPageComponent {
   public countries: Country[] = [];
+  public isLoading: boolean =  false;
 
   constructor(private countriesService: CountriesService) {}
 
   searchByCountry(country: string): void {
     country = country.trim();
     if(!country) return;
-
+    this.isLoading = true;
     this.countriesService
       .searchCountryName(country)
-      .subscribe((countriesResponse) => (this.countries = countriesResponse));
+      .subscribe((countriesResponse) => {
+        this.countries = countriesResponse;
+        this.isLoading = false;
+      });
   }
 }
