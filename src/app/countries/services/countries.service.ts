@@ -22,7 +22,6 @@ export class CountriesService {
      */
     return this.http.get<Country[]>(`${this.apiUrl}/${url}`)
     .pipe(
-      delay(1500),
       catchError(error => of([]))
     )
   }

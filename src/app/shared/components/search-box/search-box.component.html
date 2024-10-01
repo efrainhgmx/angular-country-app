@@ -10,7 +10,7 @@
 <input 
     type="text"
     [placeholder]="placeholder"
-    (keypress)="onKeyPress(txtSearchInput.value)"
+    (keyup)="onKeyPress(txtSearchInput.value)"
     class="form-control"
     #txtSearchInput
     >
