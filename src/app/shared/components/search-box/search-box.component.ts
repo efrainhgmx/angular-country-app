@@ -11,8 +11,11 @@ export class SearchBoxComponent {
   @Output()
   public onValue = new EventEmitter<string>();
 
-  searchValue(searchTerm: string): void {
-    if (!searchTerm.trim()) return;
-    this.onValue.emit(searchTerm);
+  emitValue( value: string ):void  {
+    this.onValue.emit(value);
+  }
+
+  onKeyPress( searchTerm: string ) :void {
+    console.log({searchTerm})
   }
 }
