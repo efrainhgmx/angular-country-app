@@ -14,5 +14,5 @@ export interface TermCounties {
 
 export interface RegionCountries {
     term: Region;
-    countries: Region[];
+    countries: Country[];
 }
