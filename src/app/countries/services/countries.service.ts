@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, delay, Observable, of } from 'rxjs';
+import { catchError, Observable, of } from 'rxjs';
 import { Country } from '../interfaces/country.interface';
 
 @Injectable({
