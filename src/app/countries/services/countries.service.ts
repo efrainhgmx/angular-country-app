@@ -8,7 +8,13 @@ import { Country } from '../interfaces/country.interface';
 })
 export class CountriesService {
 
-  private apiUrl: string = 'https://restcountries.com/v3.1'
+  private apiUrl: string = 'https://restcountries.com/v3.1';
+
+  public cacheStore = {
+    byCapital: { term: '', countries: [] },
+    byCountry: { term: '', countries: [] },
+    byRegion:  { term: '', countries: [] }
+  }
 
   constructor(private http: HttpClient) { }
 
